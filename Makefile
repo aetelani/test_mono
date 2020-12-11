@@ -11,7 +11,7 @@ enclib:
 	gcc -c -fPIC enclib_wrap.c
 	ld -shared -lc -L../../target/debug/libenclib.so  enclib_wrap.o -o enclib.dll
 	ldd -r -d enclib.dll
-	mono-csc -out:runmer.exe enclib.cs  enclibPINVOKE.cs  runtimer.cs
+	mono-csc -out:runmer.exe enclib.cs  libencPINVOKE.cs  runtimer.cs
 run:
 	mono --aot ./runme.exe
 	mono ./runme.exe
