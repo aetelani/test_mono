@@ -1,4 +1,4 @@
-LD_LIBRARY_PATH=./
+LD_LIBRARY_PATH=../../target/debug
 all:
 	swig -csharp -dllimport example.dll example.i
 	gcc -c -fpic example.c example_wrap.c
@@ -9,7 +9,7 @@ all:
 enclib:
 	swig -csharp -dllimport enclib.dll enclib.i
 	gcc -c -fPIC enclib_wrap.c
-	ld -shared -L../../target/debug/libenclib.so  enclib_wrap.o -o enclib.dll
+	ld -shared ../../target/debug/libenclib.so  enclib_wrap.o -o enclib.dll
 	ldd -r -d enclib.dll
 	mono-csc -out:runmer.exe libenc.cs  libencPINVOKE.cs  runtimer.cs
 
